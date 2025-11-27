@@ -47,7 +47,7 @@ h1 {
     100% { color: magenta; }
 }
 
-/* --- MENÚ HACKEr --- */
+/* === MENÚ NORMAL PARA PC === */
 nav {
     margin-top: 30px;
     text-align: center;
@@ -100,13 +100,10 @@ footer {
     text-shadow: 0 0 10px gold, 0 0 20px #ffbf00, 0 0 35px #ffdd55;
     animation: footerGlow 2s infinite alternate;
 }
-
 @keyframes footerGlow {
     from { text-shadow: 0 0 10px gold; }
     to { text-shadow: 0 0 28px #ffea00; }
 }
-
-/* Línea dorada luminosa */
 footer::before {
     content: "";
     display: block;
@@ -116,22 +113,95 @@ footer::before {
     background: gold;
     box-shadow: 0 0 10px gold, 0 0 20px #ffea00;
 }
-</style>
 
+/* ====================================================== */
+/*           MENÚ HAMBURGUESA MIXTO (DORADO + VERDE)      */
+/* ====================================================== */
+
+/* Botón hamburguesa */
+.hamburger {
+    display: none;
+    font-size: 2.3rem;
+    color: gold;
+    text-shadow: 0 0 12px gold, 0 0 25px #ffdd55;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 25px;
+}
+
+/* Menú oculto por defecto en móvil */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+}
+
+.mobile-menu a {
+    margin: 12px auto;
+    padding: 10px 20px;
+    width: 70%;
+    border: 1px solid #00ff66;
+    color: #00ff66;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.mobile-menu a:hover {
+    background-color: #00ff66;
+    color: black;
+    box-shadow: 0 0 15px #00ff66;
+}
+
+/* Mostrar botón hamburguesa y ocultar menú normal en móvil */
+@media (max-width: 700px) {
+
+    nav {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .mobile-menu.show {
+        display: flex;
+        animation: fadeIn 0.4s ease;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+</style>
 </head>
+
 <body>
 
-<h1>BIENVENIDOS A </h1>
+<h1>BIENVENIDOS A</h1>
 
-<div class="logo">ASAMBLEA DE DIOS EL EDÉN </div>
+<div class="logo">ASAMBLEA DE DIOS EL EDÉN</div>
 
-<!-- MENÚ -->
+<!-- BOTÓN HAMBURGUESA (DORADO) -->
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+<!-- MENÚ PC -->
 <nav>
     <a href="#">Testimonios</a>
     <a href="#">Audios</a>
     <a href="#">Actividades</a>
     <a href="#">Imágenes</a>
 </nav>
+
+<!-- MENÚ MÓVIL (VERDE HACKEr) -->
+<div class="mobile-menu" id="mobileMenu">
+    <a href="#">Testimonios</a>
+    <a href="#">Audios</a>
+    <a href="#">Actividades</a>
+    <a href="#">Imágenes</a>
+</div>
 
 <div class="contenido">
     <p class="bienvenida">
@@ -141,10 +211,17 @@ footer::before {
     </p>
 </div>
 
-<!-- PIE DE PÁGINA -->
 <footer>
     © 2025 ASAMBLEA DE DIOS EL EDÉN — La gloria sea para Dios ✨
 </footer>
 
+<script>
+function toggleMenu() {
+    document.getElementById("mobileMenu").classList.toggle("show");
+}
+</script>
+
 </body>
 </html>
+
+
