@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -7,14 +7,14 @@
 
 <style>
 /* --- ESTILO HACKEr CONSOLA VERDE --- */
- body {
-     margin: 0;
+body {
+    margin: 0;
     padding: 0;
-    background-image: url("dolo.jpg"); /* Cambia por el nombre de tu imagen */
-    background-size: cover; /* La imagen llena toda la pantalla */
-    background-position: center; /* Centrada */
-    background-repeat: no-repeat; /* No se repite */
-    background-attachment: fixed; /* Efecto parallax */
+    background-image: url("dolo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     font-family: Arial, sans-serif;
 }
 
@@ -89,6 +89,17 @@ nav a:hover {
     50% { text-shadow: 0 0 20px #00ff66; }
     100% { text-shadow: 0 0 8px #00ff66; }
 }
+
+/* --- ESTILO SECCIONES --- */
+section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 25px;
+    border: 1px solid #00ff66;
+    background-color: rgba(0, 255, 100, 0.05);
+    color: #00ff66;
+    font-size: 1.3rem;
+}
 </style>
 
 </head>
@@ -98,11 +109,12 @@ nav a:hover {
 
 <div class="logo">ASAMBLEA DE DIOS EL EDÉN </div>
 
+<!-- MENÚ FUNCIONAL -->
 <nav>
-    <a href="#">Testimonios</a>
-    <a href="#">Audios</a>
-    <a href="#">Actividades</a>
-    <a href="#">Imágenes</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#audios">Audios</a>
+    <a href="#actividades">Actividades</a>
+    <a href="#imagenes">Imágenes</a>
 </nav>
 
 <div class="contenido">
@@ -113,15 +125,29 @@ nav a:hover {
     </p>
 </div>
 
+<!-- ===================== -->
+<!--      SECCIONES        -->
+<!-- ===================== -->
+
+<section id="testimonios">
+    <h2>📖 Testimonios</h2>
+    <p>Aquí puedes agregar testimonios de miembros de la iglesia.</p>
+</section>
+
+<section id="audios">
+    <h2>🎧 Audios</h2>
+    <p>Agrega aquí predicaciones o alabanzas en formato de audio.</p>
+</section>
+
+<section id="actividades">
+    <h2>📅 Actividades</h2>
+    <p>Publica las actividades, cultos y eventos de la iglesia.</p>
+</section>
+
+<section id="imagenes">
+    <h2>📸 Imágenes</h2>
+    <p>Sube fotos de reuniones, eventos y actividades de la comunidad.</p>
+</section>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
