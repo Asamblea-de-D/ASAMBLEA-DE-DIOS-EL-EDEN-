@@ -90,15 +90,31 @@ nav a:hover {
     100% { text-shadow: 0 0 8px #00ff66; }
 }
 
-/* --- ESTILO SECCIONES --- */
-section {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 25px;
-    border: 1px solid #00ff66;
-    background-color: rgba(0, 255, 100, 0.05);
-    color: #00ff66;
+/* --- PIE DE PÁGINA DORADO BRILLANTE --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 80px;
+    color: gold;
     font-size: 1.3rem;
+    text-shadow: 0 0 10px gold, 0 0 20px #ffbf00, 0 0 35px #ffdd55;
+    animation: footerGlow 2s infinite alternate;
+}
+
+@keyframes footerGlow {
+    from { text-shadow: 0 0 10px gold; }
+    to { text-shadow: 0 0 28px #ffea00; }
+}
+
+/* Línea dorada luminosa */
+footer::before {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 2px;
+    margin: 0 auto 15px auto;
+    background: gold;
+    box-shadow: 0 0 10px gold, 0 0 20px #ffea00;
 }
 </style>
 
@@ -109,12 +125,12 @@ section {
 
 <div class="logo">ASAMBLEA DE DIOS EL EDÉN </div>
 
-<!-- MENÚ FUNCIONAL -->
+<!-- MENÚ -->
 <nav>
-    <a href="#testimonios">Testimonios</a>
-    <a href="#audios">Audios</a>
-    <a href="#actividades">Actividades</a>
-    <a href="#imagenes">Imágenes</a>
+    <a href="#">Testimonios</a>
+    <a href="#">Audios</a>
+    <a href="#">Actividades</a>
+    <a href="#">Imágenes</a>
 </nav>
 
 <div class="contenido">
@@ -125,30 +141,10 @@ section {
     </p>
 </div>
 
-<!-- ===================== -->
-<!--      SECCIONES        -->
-<!-- ===================== -->
-
-<section id="testimonios">
-    <h2>📖 Testimonios</h2>
-    <p>ALABANZA A DIOS TODOPODEROSO .</p>
-</section>
-
-<section id="audios">
-    <h2>🎧 Audios</h2>
-    <p>Agrega aquí predicaciones o alabanzas en formato de audio.</p>
-</section>
-
-<section id="actividades">
-    <h2>📅 Actividades</h2>
-    <p>Publica las actividades, cultos y eventos de la iglesia.</p>
-</section>
-
-<section id="imagenes">
-    <h2>📸 Imágenes</h2>
-    <p>Sube fotos de reuniones, eventos y actividades de la comunidad.</p>
-</section>
+<!-- PIE DE PÁGINA -->
+<footer>
+    © 2025 ASAMBLEA DE DIOS EL EDÉN — La gloria sea para Dios ✨
+</footer>
 
 </body>
 </html>
-
