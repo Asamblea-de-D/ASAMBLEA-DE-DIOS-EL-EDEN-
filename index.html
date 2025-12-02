@@ -7,9 +7,8 @@
 
 <style>
 
-/* --- ESTILO HACKEr CONSOLA VERDE --- */
+/* --- ESTILO GENERAL --- */
 body {
- 
     margin: 0;
     padding: 0;
     background-image: url("fondo.jpeg");
@@ -20,12 +19,20 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* --- LOGO ANIMADO IZQUIERDA --- */
- 
+/* --- LOGO SUPERIOR IZQUIERDO --- */
+.logo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 130px;
+    height: auto;
+    z-index: 10;
+}
+
 /* --- TÍTULO DORADO BRILLANTE --- */
 h1 {
     text-align: center;
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     margin-top: 80px;
     color: gold;
     text-shadow: 0 0 10px #ffd700, 0 0 20px #ffaa00, 0 0 40px #ffdd55;
@@ -36,7 +43,7 @@ h1 {
     to { text-shadow: 0 0 25px #ffea00; }
 }
 
-/* --- MENÚ HACKEr --- */
+/* --- MENÚ VERDE HACKER --- */
 nav {
     margin-top: 30px;
     text-align: center;
@@ -58,7 +65,7 @@ nav a:hover {
     box-shadow: 0 0 15px #00ff66;
 }
 
-/* ---- MENÚ RESPONSIVE PARA CELULAR ---- */
+/* MENÚ RESPONSIVE CELULAR */
 @media (max-width: 600px) {
     nav a {
         display: block;
@@ -68,32 +75,41 @@ nav a:hover {
     }
 
     h1 {
-        margin-top: 120px;
+        margin-top: 130px;
     }
 }
 
 /* CONTENEDOR TEXTO */
 .contenido {
-    max-width: 800px;
+    max-width: 900px;
     margin: 40px auto;
     padding: 20px;
     border: 1px solid #00ff66;
-    background-color: rgba(0, 255, 100, 0.05);
+    background-color: rgba(0, 255, 100, 0.07);
 }
 
-/* TEXTO DE BIENVENIDA */
-.bienvenida {
-    font-size: 1.4rem;
+/* --- TEXTO DE BIENVENIDA MEJORADO --- */
+.mejor-texto {
+    font-size: 2.3rem;
+    line-height: 1.6;
+    font-weight: bold;
+    color: #aaffee;
     text-align: center;
-    animation: cursorBlink 1.2s infinite;
-}
-@keyframes cursorBlink {
-    0% { text-shadow: 0 0 8px #00ff66; }
-    50% { text-shadow: 0 0 20px #00ff66; }
-    100% { text-shadow: 0 0 8px #00ff66; }
+    text-shadow:
+        0 0 10px #00ffcc,
+        0 0 20px #00ffaa,
+        0 0 35px #00ffcc;
+    padding: 15px;
+    animation: cursorBlink 1.5s infinite;
 }
 
-/* --- PIE DE PÁGINA DORADO BRILLANTE --- */
+@keyframes cursorBlink {
+    0% { text-shadow: 0 0 10px #00ffcc; }
+    50% { text-shadow: 0 0 25px #00ffaa; }
+    100% { text-shadow: 0 0 10px #00ffcc; }
+}
+
+/* --- PIE DE PÁGINA --- */
 footer {
     text-align: center;
     padding: 20px;
@@ -103,10 +119,12 @@ footer {
     text-shadow: 0 0 10px gold, 0 0 20px #ffbf00, 0 0 35px #ffdd55;
     animation: footerGlow 2s infinite alternate;
 }
+
 @keyframes footerGlow {
     from { text-shadow: 0 0 10px gold; }
     to { text-shadow: 0 0 28px #ffea00; }
 }
+
 footer::before {
     content: "";
     display: block;
@@ -116,18 +134,19 @@ footer::before {
     background: gold;
     box-shadow: 0 0 10px gold, 0 0 20px #ffea00;
 }
+
 </style>
 
 </head>
 <body>
 
 <!-- LOGO SUPERIOR IZQUIERDO -->
- <img src="oficial5">
- </img>
+<img src="logo.gif" class="logo" alt="Logo">
 
-<h1>BIENVENIDOS A ASAMBLEA DE DIOS EL EDEN  </h1>
+<!-- TÍTULO -->
+<h1>BIENVENIDOS A ASAMBLEA DE DIOS EL EDEN</h1>
 
-<!-- MENÚ FUNCIONAL -->
+<!-- MENÚ -->
 <nav>
     <a href="testimonios.html">Testimonios</a>
     <a href="audios.html">Audios</a>
@@ -135,29 +154,23 @@ footer::before {
     <a href="imagenes.html">Imágenes</a>
 </nav>
 
+<!-- TEXTO DE BIENVENIDA -->
 <div class="contenido">
-    <p class="bienvenida">
+    <p class="mejor-texto">
         ✨ Bienvenido a ASAMBLEA DE DIOS EL EDÉN ✨<br>
-        Un lugar donde la presencia de Dios transforma vidas.  
-        Nos alegra que visites nuestra página; aquí encontrarás fe, esperanza y palabra viva.  
+        Un lugar donde la presencia de Dios transforma vidas.<br>
+        Nos alegra que visites nuestra página; aquí encontrarás fe, esperanza y palabra viva.
     </p>
 </div>
 
+<!-- PIE DE PÁGINA -->
 <footer>
     © 2025 ASAMBLEA DE DIOS EL EDÉN — La gloria sea para Dios ✨
 </footer>
- <footer>
-  Sitio web creado por Sofonias Hernandez.
-  </footer>
+
+<footer>
+    Sitio web creado por Sofonías Hernández.
+</footer>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
