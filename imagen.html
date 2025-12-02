@@ -1,74 +1,79 @@
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Imágenes | Asamblea de Dios El Edén</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imágenes - ASAMBLEA DE DIOS EL EDÉN</title>
 
 <style>
 body {
     margin: 0;
     padding: 0;
-    background-color: #000;
+    background-image: url("fondo.jpeg");
     background-size: cover;
-    background-position: center;
     background-attachment: fixed;
     font-family: Arial, sans-serif;
-    color: #00ff66;
 }
 
-nav {
-    margin-top: 30px;
-    text-align: center;
-}
-nav a {
-    margin: 0 20px;
-    padding: 10px 20px;
-    border: 1px solid #00ff66;
-    text-decoration: none;
-    color: #00ff66;
-    font-size: 1.2rem;
-    transition: 0.3s;
-}
-nav a:hover {
-    background-color: #00ff66;
-    color: #000;
-    box-shadow: 0 0 15px #00ff66;
+.contenedor {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 25px;
+    background: rgba(0,0,0,0.6);
+    border: 2px solid gold;
+    box-shadow: 0 0 20px gold;
+    border-radius: 10px;
 }
 
 h1 {
     text-align: center;
-    margin-top: 40px;
     color: gold;
     font-size: 3rem;
-    text-shadow: 0 0 10px gold, 0 0 20px #ffaa00;
+    text-shadow: 0 0 20px gold;
 }
 
-section {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 25px;
-    border: 1px solid #00ff66;
-    background-color: rgba(0, 255, 100, 0.05);
-    font-size: 1.3rem;
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.galeria img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00ff66;
+    border: 2px solid #00ff66;
+}
+
+.volver {
+    text-align: center;
+    margin-top: 30px;
+}
+.volver a {
+    color: gold;
+    text-decoration: none;
+    font-size: 1.4rem;
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<nav>
-    <a href="testimonios.html">Testimonios</a>
-    <a href="audios.html">Audios</a>
-    <a href="actividades.html">Actividades</a>
-    <a href="imagenes.html">Imágenes</a>
-    <a href="index.html">Inicio</a>
-</nav>
+<div class="contenedor">
+    <h1>📸 Imágenes</h1>
 
-<h1>📸 Imágenes</h1>
+    <div class="galeria">
+        <img src="img1.jpg">
+        <img src="img2.jpg">
+        <img src="img3.jpg">
+        <img src="img4.jpg">
+    </div>
 
-<section>
-    <p>NO DISPONIBLE</p>
-</section>
+    <div class="volver">
+        <a href="index.html">⬅ Volver al inicio</a>
+    </div>
+
+</div>
 
 </body>
 </html>
