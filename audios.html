@@ -2,80 +2,92 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Audios | Asamblea de Dios El Edén</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audios - ASAMBLEA DE DIOS EL EDÉN</title>
 
 <style>
 body {
     margin: 0;
     padding: 0;
-    background-color: black;
+    background-image: url("fondo.jpeg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     font-family: Arial, sans-serif;
-    color: #00ff66;
 }
 
-nav {
-    margin-top: 30px;
-    text-align: center;
-}
-nav a {
-    margin: 0 20px;
-    padding: 10px 20px;
-    border: 1px solid #00ff66;
-    text-decoration: none;
-    color: #00ff66;
-    font-size: 1.2rem;
-    transition: 0.3s;
-}
-nav a:hover {
-    background-color: #00ff66;
-    color: #000;
-    box-shadow: 0 0 15px #00ff66;
+.contenedor {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 25px;
+    background: rgba(0,0,0,0.6);
+    border: 2px solid gold;
+    box-shadow: 0 0 20px gold;
+    border-radius: 10px;
 }
 
 h1 {
     text-align: center;
-    margin-top: 40px;
     color: gold;
     font-size: 3rem;
-    text-shadow: 0 0 10px gold, 0 0 20px #ffaa00;
+    text-shadow: 0 0 20px gold;
 }
 
-section {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 25px;
-    border: 1px solid #00ff66;
-    background-color: rgba(0, 255, 100, 0.05);
-    font-size: 1.3rem;
+.audio-box {
+    margin-bottom: 25px;
+    background: rgba(0,255,100,0.08);
+    padding: 20px;
+    box-shadow: 0 0 10px #00ff66;
+    border-left: 4px solid #00ff66;
+}
+
+audio {
+    width: 100%;
+}
+
+.volver {
+    text-align: center;
+    margin-top: 30px;
+}
+.volver a {
+    color: gold;
+    text-decoration: none;
+    font-size: 1.4rem;
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<nav>
-    <a href="testimonios.html">Testimonios</a>
-    <a href="audios.html">Audios</a>
-    <a href="actividades.html">Actividades</a>
-    <a href="imagenes.html">Imágenes</a>
-    <a href="index.html">Inicio</a>
-</nav>
+<div class="contenedor">
+    <h1>🎧 Audios</h1>
 
-<h1>🎧 Audios</h1>
+    <div class="audio-box">
+        <strong>Predicación 1 — Tema:</strong> La Fe  
+        <audio controls>
+            <source src="audio1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
 
-<section>
-    <p>Aca solo estaran audios de 15, a 20 mnts</p>
- <audio controls>
-    <source src="testimonio.mp3" type="audio/mpeg">
-    Tu navegador no soporta audio.
-</audio>
-</section>
+    <div class="audio-box">
+        <strong>Predicación 2 — Tema:</strong> El Poder de Dios  
+        <audio controls>
+            <source src="audio2.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="audio-box">
+        <strong>Alabanza — Tema:</strong> Dios es bueno  
+        <audio controls>
+            <source src="alabanza.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="volver">
+        <a href="index.html">⬅ Volver al inicio</a>
+    </div>
+
+</div>
 
 </body>
 </html>
-
-
-
