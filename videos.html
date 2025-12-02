@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -7,6 +7,7 @@
 
 <style>
 
+/* FONDO */
 body {
     margin: 0;
     padding: 0;
@@ -16,9 +17,10 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: Arial, sans-serif;
+    color: #ccffee;
 }
 
-/* Título */
+/* TÍTULO DORADO */
 h1 {
     text-align: center;
     font-size: 3rem;
@@ -29,21 +31,51 @@ h1 {
 }
 @keyframes glow {
     from { text-shadow: 0 0 10px gold; }
-    to { text-shadow: 0 0 25px #ffea00; }
+    to { text-shadow: 0 0 30px #ffea00; }
 }
 
-/* Contenedor */
+/* CONTENEDOR */
 .contenido {
     max-width: 900px;
     margin: 40px auto;
     padding: 20px;
     border: 1px solid #00ff66;
-    background-color: rgba(0, 255, 100, 0.08);
-    color: #ccffee;
-    font-size: 1.2rem;
+    background-color: rgba(0, 255, 100, 0.05);
 }
 
-/* Pie */
+/* TÍTULO DE SECCIÓN */
+.section-title {
+    color: #80ffb5;
+    font-size: 1.8rem;
+    text-shadow: 0 0 8px #00ff66;
+    margin-bottom: 10px;
+}
+
+/* CONTENEDOR DE CADA VIDEO */
+.video-box {
+    margin-bottom: 40px;
+    padding: 15px;
+    background: rgba(0,0,0,0.5);
+    border: 2px solid gold;
+    border-radius: 10px;
+    box-shadow: 0 0 12px gold, 0 0 25px #ffdd55;
+    animation: videoGlow 3s infinite alternate;
+}
+
+@keyframes videoGlow {
+    from { box-shadow: 0 0 8px gold; }
+    to { box-shadow: 0 0 25px #ffea00; }
+}
+
+/* VIDEO */
+.video-box video {
+    width: 100%;
+    border-radius: 8px;
+    border: 2px solid #00ff66;
+    box-shadow: 0 0 12px #00ff66;
+}
+
+/* PIE DE PÁGINA */
 footer {
     text-align: center;
     padding: 20px;
@@ -56,34 +88,33 @@ footer {
 </head>
 <body>
 
-<h1>📹 Videos de la Iglesia</h1>
+<h1>📹 POXIMAMENTE VIDEOS DISPONIBLES.</h1>
 
 <div class="contenido">
-    <p>Aquí podrás ver los videos que vayamos publicando.</p>
 
-    <p><b>Para agregar un video:</b></p>
-    <ul>
-        <li>Sube tu video a la carpeta del repositorio (misma carpeta donde están las otras páginas).</li>
-        <li>Usa este formato para insertarlo:</li>
-    </ul>
+    <p style="font-size:1.3rem; text-align:center;">
+        No hay videos disponible.
+    </p>
 
-    <pre style="background: rgba(0,0,0,0.5); padding: 10px; border: 1px solid #00ff66; color: #00ff99;">
-&lt;video src="mivideo.mp4" controls width="100%"&gt;&lt;/video&gt;
-    </pre>
+    <hr style="border:1px solid #00ff66; margin: 25px 0;">
 
-    <p>Puedes insertar tantos videos como quieras.</p>
+    <!-- 🔥 EJEMPLO DE UN VIDEO (puedes duplicar este bloque) -->
+    <div class="video-box">
+        <h2 class="section-title">📌 No disponible</h2>
+        <video src="ejemplo.mp4" controls></video>
+    </div>
 
-    <hr style="border: 1px solid #00ff66;">
-
-    <!-- EJEMPLO DE VIDEO (elimina si no quieres ejemplo) -->
-    <h3 style="color:#aaffcc;">Ejemplo de video:</h3>
-
-    <video src="ejemplo.mp4" controls width="100%"></video>
+    <!-- PARA AGREGAR MÁS VIDEOS SOLO DUPLICA ESTO:
+    <div class="video-box">
+        <h2 class="section-title">Título del video</h2>
+        <video src="NOMBREDETUVIDEO.mp4" controls></video>
+    </div>
+    -->
 
 </div>
 
 <footer>
-    © 2025 ASAMBLEA DE DIOS EL EDÉN — Página de Videos
+    © 2025 ASAMBLEA DE DIOS EL EDÉN — Sección de Videos
 </footer>
 
 </body>
