@@ -33,6 +33,70 @@ h1 {
     text-shadow: 0 0 20px gold;
 }
 
+/* ⬇⬇⬇ TITULO H2 RGB ANIMADO + BORDE NEÓN + ONDA ⬇⬇⬇ */
+h2 {
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: bold;
+    padding: 18px 20px;
+    margin-top: 25px;
+
+    /* Texto arcoiris animado */
+    background: linear-gradient(90deg,
+        red, orange, yellow, green, cyan, blue, violet, red
+    );
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: rgbText 6s linear infinite, glowPulse 3s ease-in-out infinite;
+
+    /* Borde neón */
+    border-radius: 12px;
+    position: relative;
+}
+
+h2::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 16px;
+
+    background: linear-gradient(90deg,
+        red, orange, yellow, green, cyan, blue, violet, red
+    );
+    background-size: 400% 400%;
+    animation: rgbBorder 6s linear infinite;
+
+    filter: blur(8px);
+    z-index: -1;
+}
+
+/* Animación del texto */
+@keyframes rgbText {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Animación del borde */
+@keyframes rgbBorder {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Efecto de onda luminosa */
+@keyframes glowPulse {
+    0%   { filter: drop-shadow(0 0 4px #fff); }
+    50%  { filter: drop-shadow(0 0 14px #fff); }
+    100% { filter: drop-shadow(0 0 4px #fff); }
+}
+/* ⬆⬆⬆ FIN DEL ESTILO H2 RGB ANIMADO ⬆⬆⬆ */
+
 .audio-box {
     margin-bottom: 25px;
     background: rgba(0,255,100,0.08);
@@ -61,8 +125,9 @@ audio {
 
 <div class="contenedor">
     <h1>🎧 Audios</h1>
- <h2>Dios te bendiga aca puedes reproducir cantos, textos biblicos, y testimonios tambien puedes descargar si deseas presionando 
-  los tres, puntitos y dandole a descargar.</h2>h2>
+
+    <h2>Dios te bendiga, acá puedes reproducir cantos, textos bíblicos y testimonios.  
+    También puedes descargar presionando los tres puntitos y eligiendo “descargar”.</h2>
 
     <div class="audio-box">
         <strong>Testimonio de un joven.</strong> La Fe  
@@ -84,55 +149,64 @@ audio {
             <source src="LAS 7 COPAS.mp3" type="audio/mpeg">
         </audio>
     </div>
-  <div class="audio-box">
+
+    <div class="audio-box">
         <strong>Apocalipsis</strong>  
         <audio controls>
             <source src="LAS BODAS DEL CORDERO.mp3" type="audio/mpeg">
         </audio>
     </div>
-  <div class="audio-box">
+
+    <div class="audio-box">
         <strong>Apocalipsis</strong> 
         <audio controls>
             <source src="LOS 144,000.mp3" type="audio/mpeg">
         </audio>
     </div>
-  <div class="audio-box">
+
+    <div class="audio-box">
         <strong>Apocalipsis:</strong>  
         <audio controls>
             <source src="NUEVA JERUSALEN.mp3" type="audio/mpeg">
         </audio>
     </div>
-  <div class="audio-box">
+
+    <div class="audio-box">
         <strong>Alabanza</strong> 
         <audio controls>
             <source src="Quiero Darte Adoración.mp3" type="audio/mpeg">
         </audio>
     </div>
-  <div class="audio-box">
-        <strong>Duo libano</strong>  
+
+    <div class="audio-box">
+        <strong>Duo Líbano</strong>  
         <audio controls>
             <source src="Reyes y Sacerdotes.mp3" type="audio/mpeg">
         </audio>
     </div>
-  <div class="audio-box">
-        <strong>Duo libano</strong>   
+
+    <div class="audio-box">
+        <strong>Duo Líbano</strong>   
         <audio controls>
             <source src="Soy Aquel.mp3" type="audio/mpeg">
         </audio>
     </div>
-  <div class="audio-box">
+
+    <div class="audio-box">
         <strong>Alabanza</strong>  
         <audio controls>
             <source src="Te Alabare Alcides Bojorquez.mp3" type="audio/mpeg">
         </audio>
     </div>
-  <div class="audio-box">
-        <strong>Duo libano</strong>   
+
+    <div class="audio-box">
+        <strong>Duo Líbano</strong>   
         <audio controls>
             <source src="Verdaderamente Libre.mp3" type="audio/mpeg">
         </audio>
     </div>
-  <div class="audio-box">
+
+    <div class="audio-box">
         <strong>Apocalipsis:</strong>   
         <audio controls>
             <source src="UNO.mp3" type="audio/mpeg">
@@ -147,7 +221,3 @@ audio {
 
 </body>
 </html>
-
-
-
-
