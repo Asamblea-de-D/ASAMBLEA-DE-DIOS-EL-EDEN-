@@ -34,11 +34,10 @@ h1 {
 }
 
 /* ⬇⬇⬇ TITULO H2 RGB ANIMADO + BORDE NEÓN + ONDA ⬇⬇⬇ */
-h2 {
+ h2 {
     font-size: 1.3rem;
     text-align: center;
     font-weight: bold;
-    padding: 18px 20px;
     margin-top: 25px;
 
     /* Texto arcoiris animado */
@@ -49,12 +48,15 @@ h2 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    animation: rgbText 6s linear infinite, glowPulse 3s ease-in-out infinite;
-
-    /* Borde neón */
-    border-radius: 12px;
-    position: relative;
+    animation: rgbText 6s linear infinite;
 }
+
+@keyframes rgbText {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
 
 h2::before {
     content: "";
@@ -221,3 +223,4 @@ audio {
 
 </body>
 </html>
+
