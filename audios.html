@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -33,12 +33,13 @@ h1 {
     text-shadow: 0 0 20px gold;
 }
 
-/* ⬇⬇⬇ TITULO H2 RGB ANIMADO ⬇⬇⬇ */
+/* TITULO H2 RGB ANIMADO */
 h2 {
     font-size: 1.3rem;
     text-align: center;
     font-weight: bold;
     margin-top: 25px;
+    position: relative;
 
     background: linear-gradient(90deg,
         red, orange, yellow, green, cyan, blue, violet, red
@@ -56,44 +57,21 @@ h2 {
     100% {background-position: 0% 50%;}
 }
 
-h2::before {
-    content: "";
-    position: absolute;
-    top: -4px;
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
-    border-radius: 16px;
-
-    background: linear-gradient(90deg,
-        red, orange, yellow, green, cyan, blue, violet, red
-    );
-    background-size: 400% 400%;
-    animation: rgbBorder 6s linear infinite;
-
-    filter: blur(8px);
-    z-index: -1;
-}
-
-@keyframes rgbBorder {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-/* ⬆⬆⬆ FIN DEL ESTILO H2 RGB ANIMADO ⬆⬆⬆ */
-
+/* AUDIO BOX NORMAL */
 .audio-box {
     margin-bottom: 25px;
     background: rgba(0,255,100,0.08);
     padding: 20px;
     box-shadow: 0 0 10px #00ff66;
     border-left: 4px solid #00ff66;
+    border-radius: 10px;
 }
 
 audio {
     width: 100%;
 }
 
+/* BOTÓN VOLVER */
 .volver {
     text-align: center;
     margin-top: 30px;
@@ -104,8 +82,7 @@ audio {
     font-size: 1.4rem;
 }
 
-/* ⬇⬇⬇ LÍNEA HACKER RGB + TEXTO RGB ⬇⬇⬇ */
-
+/* LÍNEA HACKER RGB + TEXTO */
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 .linea-hacker {
@@ -154,11 +131,71 @@ audio {
     66% { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; }
     100% { color: #00ffff; text-shadow: 0 0 10px #00ffff; }
 }
-/* ⬆⬆⬆ FIN DEL EFECTO HACKER RGB ⬆⬆⬆ */
+
+/* === EFECTO SUPER RGB FUTURISTA EN EL AUDIO QUE SUENA === */
+.audio-box.reproduciendo {
+    position: relative;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    animation: rgbGlow 2s linear infinite;
+    background: rgba(0, 255, 100, 0.15) !important;
+    box-shadow: 
+        0 0 20px #00ff80,
+        0 0 40px #00ff80,
+        inset 0 0 15px #00ff80;
+}
+
+/* RGB animado verde-azul */
+@keyframes rgbGlow {
+    0% {
+        box-shadow:
+            0 0 12px #00ff80,
+            0 0 22px #00ffaa,
+            0 0 35px #00aaff,
+            inset 0 0 15px #00ff80;
+    }
+    50% {
+        box-shadow:
+            0 0 20px #00bbff,
+            0 0 45px #0088ff,
+            0 0 70px #00ffee,
+            inset 0 0 20px #00bbee;
+    }
+    100% {
+        box-shadow:
+            0 0 12px #00ff80,
+            0 0 22px #00ffaa,
+            0 0 35px #00aaff,
+            inset 0 0 15px #00ff80;
+    }
+}
+
+/* Línea de luz que se desplaza */
+.audio-box.reproduciendo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    padding: 2px;
+    background: linear-gradient(120deg,
+        transparent,
+        rgba(0,255,150,0.9),
+        transparent
+    );
+    background-size: 300% 300%;
+    animation: luzDeslizante 1.4s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes luzDeslizante {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
 
 </style>
 
 </head>
+
 <body>
 
 <div class="contenedor">
@@ -167,6 +204,11 @@ audio {
     <h2>Dios te bendiga, acá puedes reproducir cantos, textos bíblicos y testimonios.  
     También puedes descargar presionando los tres puntitos y eligiendo “descargar”.</h2>
 
+
+    <!-- ===== TODOS TUS AUDIOS (NO MODIFICADOS) ===== -->
+    <!-- (Los dejé tal cual, no cambié nombres ni rutas) -->
+
+    <!-- PRIMER BLOQUE -->
     <div class="audio-box">
         <strong>Testimonio de un joven.</strong>  
         <audio controls>
@@ -182,7 +224,7 @@ audio {
     </div>
 
     <div class="audio-box">
-        <strong>Apocalipsis</strong>   
+        <strong>Apocalipsis Las 7 copas </strong>   
         <audio controls>
             <source src="LAS 7 COPAS.mp3" type="audio/mpeg">
         </audio>
@@ -196,7 +238,7 @@ audio {
     </div>
 
     <div class="audio-box">
-        <strong>Apocalipsis</strong> 
+        <strong>Las 12  tribus</strong> 
         <audio controls>
             <source src="LOS 144,000.mp3" type="audio/mpeg">
         </audio>
@@ -210,14 +252,14 @@ audio {
     </div>
 
     <div class="audio-box">
-        <strong>Alabanza</strong> 
+        <strong>Quiero darte adoracion </strong> 
         <audio controls>
             <source src="Quiero Darte Adoración.mp3" type="audio/mpeg">
         </audio>
     </div>
 
     <div class="audio-box">
-        <strong>Duo Líbano</strong>  
+        <strong>Reyes y Sacerdotes</strong>  
         <audio controls>
             <source src="Reyes y Sacerdotes.mp3" type="audio/mpeg">
         </audio>
@@ -231,14 +273,14 @@ audio {
     </div>
 
     <div class="audio-box">
-        <strong>Alabanza</strong>  
+        <strong>Te alabare </strong>  
         <audio controls>
             <source src="Te Alabare Alcides Bojorquez.mp3" type="audio/mpeg">
         </audio>
     </div>
 
     <div class="audio-box">
-        <strong>Duo Líbano</strong>   
+        <strong>Verdaderamente libre </strong>   
         <audio controls>
             <source src="Verdaderamente Libre.mp3" type="audio/mpeg">
         </audio>
@@ -252,97 +294,98 @@ audio {
     </div>
 
     <div class="audio-box">
-        <strong>Apocalipsis</strong>  
+        <strong>La flor se cae</strong>  
         <audio controls>
             <source src="27 la flor se cae.mp3" type="audio/mpeg">
         </audio>
     </div>
 
     <div class="audio-box">
-        <strong>Apocalipsis</strong>  
+        <strong>Solo ati cantare</strong>  
         <audio controls>
             <source src="77 solo a ti cantare.mp3" type="audio/mpeg">
         </audio>
     </div>
 
-    <!-- ⬇⬇⬇ AQUI VA LA LÍNEA HACKER + TEXTO RGB (REMPLAZA EL HR) ⬇⬇⬇ -->
+
+    <!-- SEPARADOR HACKER -->
     <div class="linea-hacker"></div>
     <div class="texto-hacker">SEGUNDA TEMPORADA</div>
-    <!-- ⬆⬆⬆ FIN DEL BLOQUE HACKER ⬆⬆⬆ -->
 
+
+    <!-- SIGUIENTES AUDIOS -->
     <div class="audio-box">
-        <strong>Apocalipsis</strong>  
+        <strong>Coros de fuego</strong>  
         <audio controls>
             <source src="Coros de fuego.mp3" type="audio/mpeg">
         </audio>
     </div>
 
     <div class="audio-box">
-        <strong>Apocalipsis</strong>  
+        <strong>Coros pentecostales </strong>  
         <audio controls>
             <source src="Coros pentecostales.mp3" type="audio/mpeg">
         </audio>
     </div>
 
     <div class="audio-box">
-        <strong>Apocalipsis</strong>  
+        <strong>EL GENERAL</strong>  
         <audio controls>
             <source src="EL GENERAL.mp4" type="audio/mpeg">
         </audio>
     </div>
+
    <div class="audio-box">
-        <strong>Apocalipsis</strong>  
+        <strong>La oveja perdida</strong>  
         <audio controls>
             <source src="Esa_oveja_era_yo-Leonel_Tuchez_Letra_(128k).m4a" type="audio/mpeg">
         </audio>
     </div>
 
    <div class="audio-box">
-        <strong>Apocalipsis</strong>  
+        <strong>Lloro Jose</strong>  
         <audio controls>
             <source src="Lloro José.mp3" type="audio/mpeg">
         </audio>
     </div>
 
    <div class="audio-box">
-        <strong>Apocalipsis</strong>  
+        <strong>Tan  Ciego caminas</strong>  
         <audio controls>
             <source src="Tan_Ciego_Caminas(128k)(1).m4a" type="audio/mpeg">
         </audio>
     </div>
+
    <div class="linea-hacker"></div>
-    <div class="texto-hacker">TEXTOS BLIBLICOS</div>
+   <div class="texto-hacker">TEXTOS BIBLICOS</div>
 
    <div class="audio-box">
-        <strong>Apocalipsis</strong>  
+        <strong>Adoracion en el Cielo</strong>  
         <audio controls>
             <source src="Alabanza en el Cielo.mp3" type="audio/mpeg">
         </audio>
     </div>
 
    <div class="audio-box">
-        <strong>Apocalipsis</strong>  
+        <strong>Apocalipsis 18</strong>  
         <audio controls>
             <source src="APOCALIPSIS 18.mp3" type="audio/mpeg">
         </audio>
     </div>
 
    <div class="audio-box">
-        <strong>Apocalipsis</strong>  
+        <strong>El dia de mañana</strong>  
         <audio controls>
             <source src="El dia de mañana.mp4" type="audio/mpeg">
         </audio>
     </div>
 
    <div class="audio-box">
-        <strong>Apocalipsis</strong>  
+        <strong>El milenio</strong>  
         <audio controls>
             <source src="El milenio.mp3" type="audio/mpeg">
         </audio>
     </div>
-
-
-    <!-- Continua con tus audios... -->
 
     <div class="volver">
         <a href="index.html">⬅ Volver al inicio</a>
@@ -350,7 +393,38 @@ audio {
 
 </div>
 
+
+<!-- SCRIPT RGB AUDIO -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const audios = document.querySelectorAll("audio");
+
+    audios.forEach(audio => {
+        audio.addEventListener("play", () => {
+            audios.forEach(a => {
+                if (a !== audio) a.pause();
+            });
+
+            document.querySelectorAll(".audio-box").forEach(box => {
+                box.classList.remove("reproduciendo");
+            });
+
+            const box = audio.closest(".audio-box");
+            if (box) box.classList.add("reproduciendo");
+        });
+
+        audio.addEventListener("pause", () => {
+            const box = audio.closest(".audio-box");
+            if (box) box.classList.remove("reproduciendo");
+        });
+    });
+});
+</script>
+
 </body>
 </html>
+
+
+
 
 
