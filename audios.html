@@ -65,18 +65,25 @@ h2 {
 }
 
 /* RELLENO HUD (TODO EL CUADRO) */
-.audio-box::before {
+ .audio-box::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     width: var(--progress);
-    background: var(--color);
-    opacity: 0.30;
+    background: linear-gradient(
+        90deg,
+        var(--color),
+        #ffffffaa,
+        var(--color)
+    );
+    opacity: 0.55; /* MÁS FUERTE */
+    filter: brightness(1.6) saturate(1.6);
     transition: width 0.2s linear, background 0.3s;
     z-index: 0;
 }
+
 
 /* CONTENIDO POR ENCIMA */
 .audio-box * {
@@ -215,4 +222,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
