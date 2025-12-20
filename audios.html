@@ -6,483 +6,210 @@
 <title>Audios - ASAMBLEA DE DIOS EL EDÉN</title>
 
 <style>
-body {
-    margin: 0;
-    padding: 0;
-    background-image: url("fondo.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    font-family: Arial, sans-serif;
-}
-
-.contenedor {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 25px;
-    background: rgba(0,0,0,0.6);
-    border: 2px solid gold;
-    box-shadow: 0 0 20px gold;
-    border-radius: 10px;
-}
-
-h1 {
-    text-align: center;
-    color: gold;
-    font-size: 3rem;
-    text-shadow: 0 0 20px gold;
-}
-
-/* TITULO H2 RGB ANIMADO */
-h2 {
-    font-size: 1.3rem;
-    text-align: center;
-    font-weight: bold;
-    margin-top: 25px;
-    position: relative;
-
-    background: linear-gradient(90deg,
-        red, orange, yellow, green, cyan, blue, violet, red
-    );
-    background-size: 400% 400%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    animation: rgbText 6s linear infinite;
-}
-
-@keyframes rgbText {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
-/* AUDIO BOX NORMAL */
-.audio-box {
-    margin-bottom: 25px;
-    background: rgba(0,255,100,0.08);
-    padding: 20px;
-    box-shadow: 0 0 10px #00ff66;
-    border-left: 4px solid #00ff66;
-    border-radius: 10px;
-}
-
-audio {
-    width: 100%;
-}
-
-/* BOTÓN VOLVER */
-.volver {
-    text-align: center;
-    margin-top: 30px;
-}
-.volver a {
-    color: gold;
-    text-decoration: none;
-    font-size: 1.4rem;
-}
-
-/* LÍNEA HACKER RGB + TEXTO */
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-.linea-hacker {
-    width: 100%;
-    height: 5px;
-    background: black;
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-    margin: 40px 0 15px 0;
-    box-shadow: 0 0 20px rgba(0,255,255,0.4);
+body{
+    margin:0;
+    background:url("fondo.jpeg") center/cover fixed;
+    font-family:Arial, sans-serif;
 }
 
-.linea-hacker::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -30%;
-    width: 30%;
-    height: 100%;
-    background: linear-gradient(90deg,
-        rgba(0,255,255,0) 0%,
-        rgba(0,255,255,1) 50%,
-        rgba(0,255,255,0) 100%
-    );
-    animation: scan 1.3s linear infinite;
+.contenedor{
+    max-width:900px;
+    margin:50px auto;
+    padding:25px;
+    background:rgba(0,0,0,.65);
+    border:2px solid gold;
+    box-shadow:0 0 20px gold;
+    border-radius:10px;
 }
 
-@keyframes scan {
-    0% { left: -30%; }
-    100% { left: 100%; }
+h1{
+    text-align:center;
+    color:gold;
+    font-size:3rem;
+    text-shadow:0 0 20px gold;
 }
 
-.texto-hacker {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 26px;
-    font-weight: bold;
-    text-align: center;
-    letter-spacing: 3px;
-    animation: rgbtext2 2.2s linear infinite;
+h2{
+    text-align:center;
+    font-size:1.3rem;
+    background:linear-gradient(90deg,red,orange,yellow,green,cyan,blue,violet,red);
+    background-size:400%;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:rgbText 6s linear infinite;
 }
 
-@keyframes rgbtext2 {
-    0% { color: #00ffff; text-shadow: 0 0 10px #00ffff; }
-    33% { color: #00ff00; text-shadow: 0 0 10px #00ff00; }
-    66% { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; }
-    100% { color: #00ffff; text-shadow: 0 0 10px #00ffff; }
+@keyframes rgbText{
+    0%{background-position:0%}
+    100%{background-position:400%}
 }
 
-/* === EFECTO SUPER RGB FUTURISTA EN EL AUDIO QUE SUENA === */
-.audio-box.reproduciendo {
-    position: relative;
-    border: 3px solid transparent;
-    border-radius: 10px;
-    animation: rgbGlow 2s linear infinite;
-    background: rgba(0, 255, 100, 0.15) !important;
-    box-shadow: 
-        0 0 20px #00ff80,
-        0 0 40px #00ff80,
-        inset 0 0 15px #00ff80;
+/* AUDIO BOX */
+.audio-box{
+    background:rgba(0,255,100,.08);
+    padding:20px;
+    margin-bottom:30px;
+    border-left:4px solid #00ff66;
+    border-radius:10px;
+    position:relative;
 }
 
-/* RGB animado verde-azul */
-@keyframes rgbGlow {
-    0% {
-        box-shadow:
-            0 0 12px #00ff80,
-            0 0 22px #00ffaa,
-            0 0 35px #00aaff,
-            inset 0 0 15px #00ff80;
-    }
-    50% {
-        box-shadow:
-            0 0 20px #00bbff,
-            0 0 45px #0088ff,
-            0 0 70px #00ffee,
-            inset 0 0 20px #00bbee;
-    }
-    100% {
-        box-shadow:
-            0 0 12px #00ff80,
-            0 0 22px #00ffaa,
-            0 0 35px #00aaff,
-            inset 0 0 15px #00ff80;
-    }
+audio{ width:100%; }
+
+/* TITULO CENTRAL */
+#visor-central{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    font-family:'Share Tech Mono', monospace;
+    font-size:36px;
+    pointer-events:none;
+    opacity:0;
+    z-index:9999;
+    animation:rgbTitulo 2s infinite;
 }
 
-/* Línea de luz que se desplaza */
-.audio-box.reproduciendo::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 10px;
-    padding: 2px;
-    background: linear-gradient(120deg,
-        transparent,
-        rgba(0,255,150,0.9),
-        transparent
-    );
-    background-size: 300% 300%;
-    animation: luzDeslizante 1.4s linear infinite;
-    pointer-events: none;
+#visor-central.activo{ opacity:1; }
+
+@keyframes rgbTitulo{
+    0%{color:#66ffcc;text-shadow:0 0 15px #66ffcc}
+    25%{color:#00ff00}
+    50%{color:#00aaff}
+    75%{color:#ff9900}
+    100%{color:#ff0033}
 }
 
-@keyframes luzDeslizante {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 200% 50%; }
+/* BARRA */
+.barra{
+    height:8px;
+    background:#111;
+    border-radius:5px;
+    overflow:hidden;
+    margin-top:10px;
+}
+.barra span{
+    display:block;
+    height:100%;
+    width:0%;
+    transition:width .2s linear;
 }
 
+/* PORCENTAJE */
+.porcentaje{
+    font-family:'Share Tech Mono', monospace;
+    text-align:right;
+    font-size:14px;
+    margin-top:4px;
+}
+
+/* VOLUMEN */
+.volumen{
+    width:100%;
+    margin-top:6px;
+}
+
+.linea-hacker{
+    height:5px;
+    background:black;
+    margin:40px 0 15px;
+    overflow:hidden;
+    position:relative;
+}
+.linea-hacker::before{
+    content:"";
+    position:absolute;
+    width:30%;
+    height:100%;
+    left:-30%;
+    background:linear-gradient(90deg,transparent,#00ffff,transparent);
+    animation:scan 1.3s linear infinite;
+}
+@keyframes scan{
+    from{left:-30%}
+    to{left:100%}
+}
+
+.texto-hacker{
+    text-align:center;
+    font-family:'Share Tech Mono', monospace;
+    font-size:26px;
+    animation:rgbTitulo 2.2s infinite;
+}
+
+.volver{text-align:center;margin-top:30px;}
+.volver a{color:gold;text-decoration:none;font-size:1.4rem;}
 </style>
-
 </head>
 
 <body>
 
+<div id="visor-central"></div>
+
 <div class="contenedor">
-    <h1>🎧 Audios</h1>
+<h1>🎧 Audios</h1>
+<h2>Dios te bendiga, disfruta los audios.</h2>
 
-    <h2>Dios te bendiga, acá puedes reproducir cantos, textos bíblicos y testimonios.  
-    También puedes descargar presionando los tres puntitos y eligiendo “descargar”.</h2>
-
-
-    <!-- ===== TODOS TUS AUDIOS (NO MODIFICADOS) ===== -->
-    <!-- (Los dejé tal cual, no cambié nombres ni rutas) -->
-
-    <!-- PRIMER BLOQUE -->
-    <div class="audio-box">
-        <strong>Testimonio de un joven.</strong>  
-        <audio controls>
-            <source src="testimonio.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div class="audio-box">
-        <strong>Apocalipsis</strong>  
-        <audio controls>
-            <source src="DOS .mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div class="audio-box">
-        <strong>Apocalipsis Las 7 copas </strong>   
-        <audio controls>
-            <source src="LAS 7 COPAS.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div class="audio-box">
-        <strong>Apocalipsis</strong>  
-        <audio controls>
-            <source src="LAS BODAS DEL CORDERO.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div class="audio-box">
-        <strong>Las 12  tribus</strong> 
-        <audio controls>
-            <source src="LOS 144,000.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div class="audio-box">
-        <strong>Apocalipsis:</strong>  
-        <audio controls>
-            <source src="NUEVA JERUSALEN.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div class="audio-box">
-        <strong>Quiero darte adoracion </strong> 
-        <audio controls>
-            <source src="Quiero Darte Adoración.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div class="audio-box">
-        <strong>Reyes y Sacerdotes</strong>  
-        <audio controls>
-            <source src="Reyes y Sacerdotes.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div class="audio-box">
-        <strong>Duo Líbano</strong>   
-        <audio controls>
-            <source src="Soy Aquel.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div class="audio-box">
-        <strong>Te alabare </strong>  
-        <audio controls>
-            <source src="Te Alabare Alcides Bojorquez.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div class="audio-box">
-        <strong>Verdaderamente libre </strong>   
-        <audio controls>
-            <source src="Verdaderamente Libre.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div class="audio-box">
-        <strong>Apocalipsis:</strong>   
-        <audio controls>
-            <source src="UNO.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div class="audio-box">
-        <strong>La flor se cae</strong>  
-        <audio controls>
-            <source src="27 la flor se cae.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div class="audio-box">
-        <strong>Solo ati cantare</strong>  
-        <audio controls>
-            <source src="77 solo a ti cantare.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-
-    <!-- SEPARADOR HACKER -->
-    <div class="linea-hacker"></div>
-    <div class="texto-hacker">SEGUNDA TEMPORADA</div>
-
-
-    <!-- SIGUIENTES AUDIOS -->
-    <div class="audio-box">
-        <strong>Coros de fuego</strong>  
-        <audio controls>
-            <source src="Coros de fuego.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div class="audio-box">
-        <strong>Coros pentecostales </strong>  
-        <audio controls>
-            <source src="Coros pentecostales.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div class="audio-box">
-        <strong>EL GENERAL</strong>  
-        <audio controls>
-            <source src="EL GENERAL.mp4" type="audio/mpeg">
-        </audio>
-    </div>
-
-   <div class="audio-box">
-        <strong>La oveja perdida</strong>  
-        <audio controls>
-            <source src="Esa_oveja_era_yo-Leonel_Tuchez_Letra_(128k).m4a" type="audio/mpeg">
-        </audio>
-    </div>
-
-   <div class="audio-box">
-        <strong>Lloro Jose</strong>  
-        <audio controls>
-            <source src="Lloro José.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-   <div class="audio-box">
-        <strong>Tan  Ciego caminas</strong>  
-        <audio controls>
-            <source src="Tan_Ciego_Caminas(128k)(1).m4a" type="audio/mpeg">
-        </audio>
-    </div>
-
-   <div class="linea-hacker"></div>
-   <div class="texto-hacker">TEXTOS BIBLICOS</div>
-
-   <div class="audio-box">
-        <strong>Adoracion en el Cielo</strong>  
-        <audio controls>
-            <source src="Alabanza en el Cielo.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-   <div class="audio-box">
-        <strong>Apocalipsis 18</strong>  
-        <audio controls>
-            <source src="APOCALIPSIS 18.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-   <div class="audio-box">
-        <strong>El dia de mañana</strong>  
-        <audio controls>
-            <source src="El dia de mañana.mp4" type="audio/mpeg">
-        </audio>
-    </div>
-
-   <div class="audio-box">
-        <strong>El milenio</strong>  
-        <audio controls>
-            <source src="El milenio.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-  <div class="audio-box">
-        <strong>Apocalipsis 18</strong>  
-        <audio controls>
-            <source src="APOCALIPSIS 18.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-   <div class="audio-box">
-        <strong>El dia de mañana</strong>  
-        <audio controls>
-            <source src="El dia de mañana.mp4" type="audio/mpeg">
-        </audio>
-    </div>
-
-   <div class="audio-box">
-        <strong>Hebreos 4</strong>  
-        <audio controls>
-            <source src="Hebreos 4.mp4" type="audio/mpeg">
-        </audio>
-    </div>
- <div class="audio-box">
-        <strong>Hebreos 3</strong>  
-        <audio controls>
-            <source src="Hebreos 3.mp4" type="audio/mpeg">
-        </audio>
-    </div>
-
-   <div class="audio-box">
-        <strong>Hebreos 2</strong>  
-        <audio controls>
-            <source src="Hebreos 2.mp4" type="audio/mpeg">
-        </audio>
-    </div>
-
-   <div class="audio-box">
-        <strong>Hebreos 1</strong>  
-        <audio controls>
-            <source src="Santiago 1.mp4" type="audio/mpeg">
-        </audio>
-    </div>
- <div class="audio-box">
-        <strong>Santiago 2</strong>  
-        <audio controls>
-            <source src="Santiago 2.mp4" type="audio/mpeg">
-        </audio>
- </div> <div class="audio-box">
-        <strong>Santiago 3</strong>  
-        <audio controls>
-            <source src="Santiago 3.mp4" type="audio/mpeg">
-        </audio>
-    </div> <div class="audio-box">
-        <strong>Santiago 4</strong>  
-        <audio controls>
-            <source src="Santiago 4.mp4" type="audio/mpeg">
-        </audio>
-    </div>
-
- 
-    <div class="volver">
-        <a href="index.html">⬅ Volver al inicio</a>
-    </div>
-
+<div class="audio-box">
+<strong>Testimonio de un joven</strong>
+<audio src="testimonio.mp3" controls></audio>
+<div class="barra"><span></span></div>
+<div class="porcentaje">0%</div>
+<input type="range" class="volumen" min="0" max="1" step="0.01" value="1">
 </div>
 
+<div class="linea-hacker"></div>
+<div class="texto-hacker">SEGUNDA TEMPORADA</div>
 
-<!-- SCRIPT RGB AUDIO -->
+<div class="volver">
+<a href="index.html">⬅ Volver al inicio</a>
+</div>
+</div>
+
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const audios = document.querySelectorAll("audio");
+const audios=document.querySelectorAll("audio");
+const visor=document.getElementById("visor-central");
 
-    audios.forEach(audio => {
-        audio.addEventListener("play", () => {
-            audios.forEach(a => {
-                if (a !== audio) a.pause();
-            });
+// beep digital
+const beep=new Audio("data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=");
 
-            document.querySelectorAll(".audio-box").forEach(box => {
-                box.classList.remove("reproduciendo");
-            });
+audios.forEach(audio=>{
+ const box=audio.closest(".audio-box");
+ const barra=box.querySelector(".barra span");
+ const porc=box.querySelector(".porcentaje");
+ const vol=box.querySelector(".volumen");
+ const titulo=box.querySelector("strong").innerText;
 
-            const box = audio.closest(".audio-box");
-            if (box) box.classList.add("reproduciendo");
-        });
+ vol.addEventListener("input",()=>audio.volume=vol.value);
 
-        audio.addEventListener("pause", () => {
-            const box = audio.closest(".audio-box");
-            if (box) box.classList.remove("reproduciendo");
-        });
-    });
+ audio.addEventListener("play",()=>{
+   audios.forEach(a=>{if(a!==audio)a.pause();});
+   visor.innerText=titulo;
+   visor.classList.add("activo");
+   beep.play();
+ });
+
+ audio.addEventListener("timeupdate",()=>{
+   const p=(audio.currentTime/audio.duration)*100||0;
+   barra.style.width=p+"%";
+   porc.innerText=Math.floor(p)+"%";
+
+   if(p<=25){barra.style.background="#66ff99";porc.style.color="#66ff99";}
+   else if(p<=50){barra.style.background="#00aaff";porc.style.color="#00aaff";}
+   else if(p<=75){barra.style.background="#ff9900";porc.style.color="#ff9900";}
+   else{barra.style.background="#ff0033";porc.style.color="#ff0033";}
+ });
+
+ audio.addEventListener("ended",()=>{
+   barra.style.width="0%";
+   porc.innerText="0%";
+   visor.classList.remove("activo");
+ });
 });
 </script>
 
 </body>
 </html>
-
-
-
-
-
 
