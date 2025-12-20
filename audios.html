@@ -86,10 +86,14 @@ h2 {
 
 
 /* CONTENIDO POR ENCIMA */
-.audio-box * {
-    position: relative;
-    z-index: 1;
+ .audio-box {
+    border: 2px solid #00ff66;
+    box-shadow:
+        0 0 10px #00ff66,
+        0 0 20px #00ff66,
+        inset 0 0 10px rgba(0,255,102,0.4);
 }
+
 
 /* TITULO NORMAL */
 .audio-box strong {
@@ -115,8 +119,11 @@ h2 {
     text-shadow: 0 0 12px #00ffcc;
 }
 
-.audio-box.activo .titulo-hacker {
-    display: block;
+ .audio-box.activo {
+    box-shadow:
+        0 0 15px var(--color),
+        0 0 35px var(--color),
+        inset 0 0 18px var(--color);
 }
 
 .audio-box.activo strong {
@@ -222,5 +229,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
