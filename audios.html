@@ -6,6 +6,8 @@
 <title>Audios - ASAMBLEA DE DIOS EL EDÉN</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -20,7 +22,7 @@ body {
     max-width: 900px;
     margin: 50px auto;
     padding: 25px;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.65);
     border: 2px solid gold;
     box-shadow: 0 0 20px gold;
     border-radius: 10px;
@@ -33,168 +35,136 @@ h1 {
     text-shadow: 0 0 20px gold;
 }
 
-/* TEXTO INTRO RGB */
+/* TEXTO INTRO */
 h2 {
-    font-size: 1.3rem;
     text-align: center;
-    font-weight: bold;
-    margin-top: 25px;
-    background: linear-gradient(90deg,red,orange,yellow,green,cyan,blue,violet,red);
+    font-size: 1.3rem;
+    margin-top: 20px;
+    background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: rgbText 6s linear infinite;
 }
 @keyframes rgbText {
-    0% {background-position:0% 50%;}
-    50% {background-position:100% 50%;}
-    100% {background-position:0% 50%;}
+    0% {background-position: 0% 50%;}
+    100% {background-position: 100% 50%;}
 }
 
-/* AUDIO BOX */
+/* ================= AUDIO BOX ================= */
 .audio-box {
-    margin-bottom: 25px;
-    background: rgba(0,255,100,0.08);
-    padding: 20px;
-    border-left: 4px solid #00ff66;
-    box-shadow: 0 0 10px #00ff66;
-    border-radius: 10px;
-}
+    --progress: 0%;
+    --color: #00ff66;
 
-audio { width: 100%; }
-
-/* BARRA DE PROGRESO */
-.progress {
-    width: 100%;
-    height: 8px;
-    background: #111;
-    border-radius: 6px;
+    position: relative;
+    margin-bottom: 30px;
+    padding: 22px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.55);
     overflow: hidden;
-    margin-top: 10px;
-    display: none;
 }
-.progress-bar {
+
+/* RELLENO HUD (TODO EL CUADRO) */
+.audio-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
-    width: 0%;
-    transition: width 0.2s linear;
+    width: var(--progress);
+    background: var(--color);
+    opacity: 0.30;
+    transition: width 0.2s linear, background 0.3s;
+    z-index: 0;
 }
 
-/* VISOR CENTRAL */
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
-#audio-visor {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0;
-    transition: opacity .3s;
+/* CONTENIDO POR ENCIMA */
+.audio-box * {
+    position: relative;
+    z-index: 1;
 }
-#audio-visor.activo { opacity: 1; }
 
-#audio-visor span {
+/* TITULO NORMAL */
+.audio-box strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #fff;
+}
+
+/* TITULO HACKER (SOLO CUANDO REPRODUCE) */
+.audio-box .titulo-hacker {
+    display: none;
     font-family: 'Share Tech Mono', monospace;
-    font-size: 34px;
-    letter-spacing: 4px;
+    font-size: 18px;
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+
     background: linear-gradient(90deg,#00ffcc,#00ff00,#00ccff,#00ffcc);
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: visorRGB 2s linear infinite, blink 1.2s infinite;
-    text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc;
-}
-@keyframes visorRGB {
-    0%{background-position:0% 50%;}
-    100%{background-position:100% 50%;}
-}
-@keyframes blink {
-    0%,100%{opacity:1;}
-    50%{opacity:.6;}
+
+    animation: hackerRGB 2s linear infinite, blink 1.2s infinite;
+    text-shadow: 0 0 12px #00ffcc;
 }
 
-/* LINEA HACKER */
-.linea-hacker {
+.audio-box.activo .titulo-hacker {
+    display: block;
+}
+
+.audio-box.activo strong {
+    display: none;
+}
+
+@keyframes hackerRGB {
+    0% {background-position: 0% 50%;}
+    100% {background-position: 100% 50%;}
+}
+@keyframes blink {
+    0%,100% {opacity: 1;}
+    50% {opacity: 0.6;}
+}
+
+audio {
     width: 100%;
-    height: 5px;
-    background: black;
-    position: relative;
-    overflow: hidden;
-    border-radius: 4px;
-    margin: 40px 0 15px;
-    box-shadow: 0 0 20px rgba(0,255,255,.4);
-}
-.linea-hacker::before {
-    content:"";
-    position:absolute;
-    top:0;
-    left:-30%;
-    width:30%;
-    height:100%;
-    background:linear-gradient(90deg,transparent,#00ffff,transparent);
-    animation:scan 1.3s linear infinite;
-}
-@keyframes scan {
-    0%{left:-30%;}
-    100%{left:100%;}
-}
-.texto-hacker {
-    font-family:'Share Tech Mono',monospace;
-    font-size:26px;
-    text-align:center;
-    letter-spacing:3px;
-    animation:rgbtext2 2.2s linear infinite;
-}
-@keyframes rgbtext2 {
-    0%{color:#00ffff;text-shadow:0 0 10px #00ffff;}
-    33%{color:#00ff00;text-shadow:0 0 10px #00ff00;}
-    66%{color:#ff00ff;text-shadow:0 0 10px #ff00ff;}
-    100%{color:#00ffff;text-shadow:0 0 10px #00ffff;}
 }
 
 .volver {
-    text-align:center;
-    margin-top:30px;
+    text-align: center;
+    margin-top: 30px;
 }
 .volver a {
-    color:gold;
-    font-size:1.4rem;
-    text-decoration:none;
+    color: gold;
+    font-size: 1.4rem;
+    text-decoration: none;
 }
 </style>
 </head>
 
 <body>
 
-<!-- VISOR CENTRAL -->
-<div id="audio-visor"><span id="audio-titulo"></span></div>
-
 <div class="contenedor">
 <h1>🎧 Audios</h1>
 
 <h2>Dios te bendiga, acá puedes reproducir cantos, textos bíblicos y testimonios.</h2>
 
-<!-- EJEMPLO DE AUDIO (COPIA ESTE BLOQUE PARA TODOS) -->
+<!-- ===== AUDIO ===== -->
 <div class="audio-box">
+    <div class="titulo-hacker">TESTIMONIO DE UN JOVEN</div>
     <strong>Testimonio de un joven</strong>
     <audio controls src="testimonio.mp3"></audio>
-    <div class="progress"><div class="progress-bar"></div></div>
 </div>
 
 <div class="audio-box">
+    <div class="titulo-hacker">APOCALIPSIS</div>
     <strong>Apocalipsis</strong>
     <audio controls src="DOS .mp3"></audio>
-    <div class="progress"><div class="progress-bar"></div></div>
 </div>
 
-<div class="linea-hacker"></div>
-<div class="texto-hacker">SEGUNDA TEMPORADA</div>
-
 <div class="audio-box">
+    <div class="titulo-hacker">COROS DE FUEGO</div>
     <strong>Coros de fuego</strong>
     <audio controls src="Coros de fuego.mp3"></audio>
-    <div class="progress"><div class="progress-bar"></div></div>
 </div>
 
 <div class="volver">
@@ -206,43 +176,38 @@ audio { width: 100%; }
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const audios = document.querySelectorAll("audio");
-    const visor = document.getElementById("audio-visor");
-    const titulo = document.getElementById("audio-titulo");
 
     audios.forEach(audio => {
         const box = audio.closest(".audio-box");
-        const bar = box.querySelector(".progress-bar");
-        const progress = box.querySelector(".progress");
-        const nombre = box.querySelector("strong").innerText;
 
         audio.addEventListener("play", () => {
+            // Solo un audio activo
             audios.forEach(a => { if (a !== audio) a.pause(); });
-
-            document.querySelectorAll(".progress").forEach(p => p.style.display="none");
-            progress.style.display = "block";
-
-            titulo.textContent = nombre.toUpperCase();
-            visor.classList.add("activo");
+            document.querySelectorAll(".audio-box").forEach(b => b.classList.remove("activo"));
+            box.classList.add("activo");
         });
 
         audio.addEventListener("timeupdate", () => {
+            if (!audio.duration) return;
+
             const p = (audio.currentTime / audio.duration) * 100;
-            bar.style.width = p + "%";
+            let color = "#00ff66";       // verde
 
-            if (p <= 25) bar.style.background = "#00ff66";
-            else if (p <= 50) bar.style.background = "#00ccff";
-            else if (p <= 75) bar.style.background = "#ffaa00";
-            else bar.style.background = "#ff3333";
-        });
+            if (p > 75) color = "#ff3333";      // rojo
+            else if (p > 50) color = "#ffaa00"; // naranja
+            else if (p > 25) color = "#00ccff"; // azul
 
-        audio.addEventListener("ended", () => {
-            bar.style.width = "0%";
-            progress.style.display = "none";
-            visor.classList.remove("activo");
+            box.style.setProperty("--progress", p + "%");
+            box.style.setProperty("--color", color);
         });
 
         audio.addEventListener("pause", () => {
-            visor.classList.remove("activo");
+            box.classList.remove("activo");
+        });
+
+        audio.addEventListener("ended", () => {
+            box.classList.remove("activo");
+            box.style.setProperty("--progress", "0%");
         });
     });
 });
