@@ -6,8 +6,6 @@
 <title>Audios - ASAMBLEA DE DIOS EL EDÉN</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
 body {
     margin: 0;
     padding: 0;
@@ -35,22 +33,22 @@ h1 {
     text-shadow: 0 0 20px gold;
 }
 
-/* TITULO RGB */
+/* TEXTO INTRO RGB */
 h2 {
     font-size: 1.3rem;
     text-align: center;
     font-weight: bold;
     margin-top: 25px;
-    background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
+    background: linear-gradient(90deg,red,orange,yellow,green,cyan,blue,violet,red);
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: rgbText 6s linear infinite;
 }
 @keyframes rgbText {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
 }
 
 /* AUDIO BOX */
@@ -59,31 +57,31 @@ h2 {
     background: rgba(0,255,100,0.08);
     padding: 20px;
     border-left: 4px solid #00ff66;
+    box-shadow: 0 0 10px #00ff66;
     border-radius: 10px;
-    position: relative;
 }
 
 audio { width: 100%; }
 
 /* BARRA DE PROGRESO */
-.progreso {
+.progress {
     width: 100%;
     height: 8px;
     background: #111;
-    border-radius: 5px;
+    border-radius: 6px;
     overflow: hidden;
     margin-top: 10px;
+    display: none;
 }
-
-.progreso span {
-    display: block;
+.progress-bar {
     height: 100%;
     width: 0%;
-    background: lime;
-    transition: width 0.3s linear, background 0.3s linear;
+    transition: width 0.2s linear;
 }
 
 /* VISOR CENTRAL */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
 #audio-visor {
     position: fixed;
     top: 50%;
@@ -92,31 +90,28 @@ audio { width: 100%; }
     pointer-events: none;
     z-index: 9999;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity .3s;
 }
-
 #audio-visor.activo { opacity: 1; }
 
-#audio-titulo {
+#audio-visor span {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 38px;
+    font-size: 34px;
     letter-spacing: 4px;
-    text-align: center;
     background: linear-gradient(90deg,#00ffcc,#00ff00,#00ccff,#00ffcc);
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: visorRGB 2s linear infinite, blink 1.2s infinite;
-    text-shadow: 0 0 20px #00ffcc;
+    text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc;
 }
-
 @keyframes visorRGB {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+    0%{background-position:0% 50%;}
+    100%{background-position:100% 50%;}
 }
 @keyframes blink {
-    0%,100%{opacity:1}
-    50%{opacity:.6}
+    0%,100%{opacity:1;}
+    50%{opacity:.6;}
 }
 
 /* LINEA HACKER */
@@ -128,10 +123,12 @@ audio { width: 100%; }
     overflow: hidden;
     border-radius: 4px;
     margin: 40px 0 15px;
+    box-shadow: 0 0 20px rgba(0,255,255,.4);
 }
 .linea-hacker::before {
     content:"";
     position:absolute;
+    top:0;
     left:-30%;
     width:30%;
     height:100%;
@@ -139,85 +136,115 @@ audio { width: 100%; }
     animation:scan 1.3s linear infinite;
 }
 @keyframes scan {
-    0%{left:-30%}
-    100%{left:100%}
+    0%{left:-30%;}
+    100%{left:100%;}
 }
-
 .texto-hacker {
     font-family:'Share Tech Mono',monospace;
     font-size:26px;
     text-align:center;
-    animation:rgbtext2 2s infinite;
+    letter-spacing:3px;
+    animation:rgbtext2 2.2s linear infinite;
 }
 @keyframes rgbtext2 {
-    0%{color:#0ff}
-    50%{color:#0f0}
-    100%{color:#f0f}
+    0%{color:#00ffff;text-shadow:0 0 10px #00ffff;}
+    33%{color:#00ff00;text-shadow:0 0 10px #00ff00;}
+    66%{color:#ff00ff;text-shadow:0 0 10px #ff00ff;}
+    100%{color:#00ffff;text-shadow:0 0 10px #00ffff;}
 }
 
-.volver { text-align:center; margin-top:30px; }
-.volver a { color:gold; font-size:1.4rem; text-decoration:none; }
+.volver {
+    text-align:center;
+    margin-top:30px;
+}
+.volver a {
+    color:gold;
+    font-size:1.4rem;
+    text-decoration:none;
+}
 </style>
 </head>
 
 <body>
 
-<!-- VISOR -->
-<div id="audio-visor"><div id="audio-titulo"></div></div>
+<!-- VISOR CENTRAL -->
+<div id="audio-visor"><span id="audio-titulo"></span></div>
 
 <div class="contenedor">
 <h1>🎧 Audios</h1>
+
 <h2>Dios te bendiga, acá puedes reproducir cantos, textos bíblicos y testimonios.</h2>
 
-<!-- EJEMPLO AUDIO (aplica a TODOS igual) -->
+<!-- EJEMPLO DE AUDIO (COPIA ESTE BLOQUE PARA TODOS) -->
 <div class="audio-box">
-<strong>Testimonio de un joven</strong>
-<audio controls>
-<source src="testimonio.mp3">
-</audio>
-<div class="progreso"><span></span></div>
+    <strong>Testimonio de un joven</strong>
+    <audio controls src="testimonio.mp3"></audio>
+    <div class="progress"><div class="progress-bar"></div></div>
 </div>
 
-<!-- 👉 DUPLICA ESTE BLOQUE PARA TODOS TUS AUDIOS 👈 -->
+<div class="audio-box">
+    <strong>Apocalipsis</strong>
+    <audio controls src="DOS .mp3"></audio>
+    <div class="progress"><div class="progress-bar"></div></div>
+</div>
+
+<div class="linea-hacker"></div>
+<div class="texto-hacker">SEGUNDA TEMPORADA</div>
+
+<div class="audio-box">
+    <strong>Coros de fuego</strong>
+    <audio controls src="Coros de fuego.mp3"></audio>
+    <div class="progress"><div class="progress-bar"></div></div>
+</div>
 
 <div class="volver">
-<a href="index.html">⬅ Volver al inicio</a>
+    <a href="index.html">⬅ Volver al inicio</a>
 </div>
+
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-const audios = document.querySelectorAll("audio");
-const visor = document.getElementById("audio-visor");
-const titulo = document.getElementById("audio-titulo");
+    const audios = document.querySelectorAll("audio");
+    const visor = document.getElementById("audio-visor");
+    const titulo = document.getElementById("audio-titulo");
 
-audios.forEach(audio => {
-const barra = audio.parentElement.querySelector(".progreso span");
+    audios.forEach(audio => {
+        const box = audio.closest(".audio-box");
+        const bar = box.querySelector(".progress-bar");
+        const progress = box.querySelector(".progress");
+        const nombre = box.querySelector("strong").innerText;
 
-audio.addEventListener("play", () => {
-audios.forEach(a => { if(a!==audio){ a.pause(); } });
+        audio.addEventListener("play", () => {
+            audios.forEach(a => { if (a !== audio) a.pause(); });
 
-const nombre = audio.parentElement.querySelector("strong").innerText;
-titulo.textContent = nombre.toUpperCase();
-visor.classList.add("activo");
-});
+            document.querySelectorAll(".progress").forEach(p => p.style.display="none");
+            progress.style.display = "block";
 
-audio.addEventListener("timeupdate", () => {
-const p = (audio.currentTime / audio.duration) * 100;
-barra.style.width = p + "%";
+            titulo.textContent = nombre.toUpperCase();
+            visor.classList.add("activo");
+        });
 
-if (p < 25) barra.style.background = "#00ff66";
-else if (p < 50) barra.style.background = "#00aaff";
-else if (p < 75) barra.style.background = "#ffaa00";
-else barra.style.background = "#ff0033";
-});
+        audio.addEventListener("timeupdate", () => {
+            const p = (audio.currentTime / audio.duration) * 100;
+            bar.style.width = p + "%";
 
-audio.addEventListener("ended", () => {
-barra.style.width = "0%";
-visor.classList.remove("activo");
-});
-audio.addEventListener("pause", () => visor.classList.remove("activo"));
-});
+            if (p <= 25) bar.style.background = "#00ff66";
+            else if (p <= 50) bar.style.background = "#00ccff";
+            else if (p <= 75) bar.style.background = "#ffaa00";
+            else bar.style.background = "#ff3333";
+        });
+
+        audio.addEventListener("ended", () => {
+            bar.style.width = "0%";
+            progress.style.display = "none";
+            visor.classList.remove("activo");
+        });
+
+        audio.addEventListener("pause", () => {
+            visor.classList.remove("activo");
+        });
+    });
 });
 </script>
 
