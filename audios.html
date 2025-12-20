@@ -8,160 +8,177 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
-body{
-    margin:0;
-    background:url("fondo.jpeg") center/cover fixed;
-    font-family:Arial, sans-serif;
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("fondo.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
 }
 
-.contenedor{
-    max-width:900px;
-    margin:50px auto;
-    padding:25px;
-    background:rgba(0,0,0,.65);
-    border:2px solid gold;
-    box-shadow:0 0 20px gold;
-    border-radius:10px;
+.contenedor {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 25px;
+    background: rgba(0,0,0,0.6);
+    border: 2px solid gold;
+    box-shadow: 0 0 20px gold;
+    border-radius: 10px;
 }
 
-h1{
-    text-align:center;
-    color:gold;
-    font-size:3rem;
-    text-shadow:0 0 20px gold;
+h1 {
+    text-align: center;
+    color: gold;
+    font-size: 3rem;
+    text-shadow: 0 0 20px gold;
 }
 
-h2{
-    text-align:center;
-    font-size:1.3rem;
-    background:linear-gradient(90deg,red,orange,yellow,green,cyan,blue,violet,red);
-    background-size:400%;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    animation:rgbText 6s linear infinite;
+/* TITULO RGB */
+h2 {
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 25px;
+    background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rgbText 6s linear infinite;
 }
-
-@keyframes rgbText{
-    0%{background-position:0%}
-    100%{background-position:400%}
+@keyframes rgbText {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
 
 /* AUDIO BOX */
-.audio-box{
-    background:rgba(0,255,100,.08);
-    padding:20px;
-    margin-bottom:30px;
-    border-left:4px solid #00ff66;
-    border-radius:10px;
-    position:relative;
+.audio-box {
+    margin-bottom: 25px;
+    background: rgba(0,255,100,0.08);
+    padding: 20px;
+    border-left: 4px solid #00ff66;
+    border-radius: 10px;
+    position: relative;
 }
 
-audio{ width:100%; }
+audio { width: 100%; }
 
-/* TITULO CENTRAL */
-#visor-central{
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    font-family:'Share Tech Mono', monospace;
-    font-size:36px;
-    pointer-events:none;
-    opacity:0;
-    z-index:9999;
-    animation:rgbTitulo 2s infinite;
+/* BARRA DE PROGRESO */
+.progreso {
+    width: 100%;
+    height: 8px;
+    background: #111;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
 }
 
-#visor-central.activo{ opacity:1; }
-
-@keyframes rgbTitulo{
-    0%{color:#66ffcc;text-shadow:0 0 15px #66ffcc}
-    25%{color:#00ff00}
-    50%{color:#00aaff}
-    75%{color:#ff9900}
-    100%{color:#ff0033}
+.progreso span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: lime;
+    transition: width 0.3s linear, background 0.3s linear;
 }
 
-/* BARRA */
-.barra{
-    height:8px;
-    background:#111;
-    border-radius:5px;
-    overflow:hidden;
-    margin-top:10px;
-}
-.barra span{
-    display:block;
-    height:100%;
-    width:0%;
-    transition:width .2s linear;
+/* VISOR CENTRAL */
+#audio-visor {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
-/* PORCENTAJE */
-.porcentaje{
-    font-family:'Share Tech Mono', monospace;
-    text-align:right;
-    font-size:14px;
-    margin-top:4px;
+#audio-visor.activo { opacity: 1; }
+
+#audio-titulo {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 38px;
+    letter-spacing: 4px;
+    text-align: center;
+    background: linear-gradient(90deg,#00ffcc,#00ff00,#00ccff,#00ffcc);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: visorRGB 2s linear infinite, blink 1.2s infinite;
+    text-shadow: 0 0 20px #00ffcc;
 }
 
-/* VOLUMEN */
-.volumen{
-    width:100%;
-    margin-top:6px;
+@keyframes visorRGB {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+@keyframes blink {
+    0%,100%{opacity:1}
+    50%{opacity:.6}
 }
 
-.linea-hacker{
-    height:5px;
-    background:black;
-    margin:40px 0 15px;
-    overflow:hidden;
-    position:relative;
+/* LINEA HACKER */
+.linea-hacker {
+    width: 100%;
+    height: 5px;
+    background: black;
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    margin: 40px 0 15px;
 }
-.linea-hacker::before{
+.linea-hacker::before {
     content:"";
     position:absolute;
+    left:-30%;
     width:30%;
     height:100%;
-    left:-30%;
     background:linear-gradient(90deg,transparent,#00ffff,transparent);
     animation:scan 1.3s linear infinite;
 }
-@keyframes scan{
-    from{left:-30%}
-    to{left:100%}
+@keyframes scan {
+    0%{left:-30%}
+    100%{left:100%}
 }
 
-.texto-hacker{
-    text-align:center;
-    font-family:'Share Tech Mono', monospace;
+.texto-hacker {
+    font-family:'Share Tech Mono',monospace;
     font-size:26px;
-    animation:rgbTitulo 2.2s infinite;
+    text-align:center;
+    animation:rgbtext2 2s infinite;
+}
+@keyframes rgbtext2 {
+    0%{color:#0ff}
+    50%{color:#0f0}
+    100%{color:#f0f}
 }
 
-.volver{text-align:center;margin-top:30px;}
-.volver a{color:gold;text-decoration:none;font-size:1.4rem;}
+.volver { text-align:center; margin-top:30px; }
+.volver a { color:gold; font-size:1.4rem; text-decoration:none; }
 </style>
 </head>
 
 <body>
 
-<div id="visor-central"></div>
+<!-- VISOR -->
+<div id="audio-visor"><div id="audio-titulo"></div></div>
 
 <div class="contenedor">
 <h1>🎧 Audios</h1>
-<h2>Dios te bendiga, disfruta los audios.</h2>
+<h2>Dios te bendiga, acá puedes reproducir cantos, textos bíblicos y testimonios.</h2>
 
+<!-- EJEMPLO AUDIO (aplica a TODOS igual) -->
 <div class="audio-box">
 <strong>Testimonio de un joven</strong>
-<audio src="testimonio.mp3" controls></audio>
-<div class="barra"><span></span></div>
-<div class="porcentaje">0%</div>
-<input type="range" class="volumen" min="0" max="1" step="0.01" value="1">
+<audio controls>
+<source src="testimonio.mp3">
+</audio>
+<div class="progreso"><span></span></div>
 </div>
 
-<div class="linea-hacker"></div>
-<div class="texto-hacker">SEGUNDA TEMPORADA</div>
+<!-- 👉 DUPLICA ESTE BLOQUE PARA TODOS TUS AUDIOS 👈 -->
 
 <div class="volver">
 <a href="index.html">⬅ Volver al inicio</a>
@@ -169,44 +186,38 @@ audio{ width:100%; }
 </div>
 
 <script>
-const audios=document.querySelectorAll("audio");
-const visor=document.getElementById("visor-central");
+document.addEventListener("DOMContentLoaded", () => {
+const audios = document.querySelectorAll("audio");
+const visor = document.getElementById("audio-visor");
+const titulo = document.getElementById("audio-titulo");
 
-// beep digital
-const beep=new Audio("data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=");
+audios.forEach(audio => {
+const barra = audio.parentElement.querySelector(".progreso span");
 
-audios.forEach(audio=>{
- const box=audio.closest(".audio-box");
- const barra=box.querySelector(".barra span");
- const porc=box.querySelector(".porcentaje");
- const vol=box.querySelector(".volumen");
- const titulo=box.querySelector("strong").innerText;
+audio.addEventListener("play", () => {
+audios.forEach(a => { if(a!==audio){ a.pause(); } });
 
- vol.addEventListener("input",()=>audio.volume=vol.value);
+const nombre = audio.parentElement.querySelector("strong").innerText;
+titulo.textContent = nombre.toUpperCase();
+visor.classList.add("activo");
+});
 
- audio.addEventListener("play",()=>{
-   audios.forEach(a=>{if(a!==audio)a.pause();});
-   visor.innerText=titulo;
-   visor.classList.add("activo");
-   beep.play();
- });
+audio.addEventListener("timeupdate", () => {
+const p = (audio.currentTime / audio.duration) * 100;
+barra.style.width = p + "%";
 
- audio.addEventListener("timeupdate",()=>{
-   const p=(audio.currentTime/audio.duration)*100||0;
-   barra.style.width=p+"%";
-   porc.innerText=Math.floor(p)+"%";
+if (p < 25) barra.style.background = "#00ff66";
+else if (p < 50) barra.style.background = "#00aaff";
+else if (p < 75) barra.style.background = "#ffaa00";
+else barra.style.background = "#ff0033";
+});
 
-   if(p<=25){barra.style.background="#66ff99";porc.style.color="#66ff99";}
-   else if(p<=50){barra.style.background="#00aaff";porc.style.color="#00aaff";}
-   else if(p<=75){barra.style.background="#ff9900";porc.style.color="#ff9900";}
-   else{barra.style.background="#ff0033";porc.style.color="#ff0033";}
- });
-
- audio.addEventListener("ended",()=>{
-   barra.style.width="0%";
-   porc.innerText="0%";
-   visor.classList.remove("activo");
- });
+audio.addEventListener("ended", () => {
+barra.style.width = "0%";
+visor.classList.remove("activo");
+});
+audio.addEventListener("pause", () => visor.classList.remove("activo"));
+});
 });
 </script>
 
