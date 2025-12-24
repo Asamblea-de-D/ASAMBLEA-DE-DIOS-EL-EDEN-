@@ -87,25 +87,16 @@ h2 {
 
 
 /* CONTENIDO POR ENCIMA */
- .audio-box {
-    position: relative;
-    margin-bottom: 30px;
-    padding: 20px;
-    background: rgba(0,0,0,0.7);
-
-    /* Marco dorado */
-    border: 2px solid gold;
-    border-radius: 12px;
-
-    /* Neón verde */
-    box-shadow:
-        0 0 12px #00ff66,
-        inset 0 0 12px rgba(0,255,100,0.25);
-
-    overflow: hidden;
+  .audio-box {
+    position: relative; /* 🔥 ESTO ES LO QUE FALTABA */
+    
+    margin-bottom: 25px;
+    background: rgba(0,255,100,0.08);
+    padding: 26px 20px 20px; /* más espacio arriba */
+    
+    box-shadow: 0 0 10px #00ff66;
+    border-left: 4px solid #00ff66;
 }
-
-
 
 /* TITULO NORMAL */
 .audio-box strong {
@@ -277,6 +268,7 @@ audio {
     <div class="titulo">TEXTOS BIBLICOS </div>
     <div class="linea"></div>
 </div>
+
  <div class="titulo-hacker">Santiago 1</div>
     <strong>Santiago 1</strong>
     <audio controls src="Santiago 1.mp4"></audio>
@@ -403,6 +395,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
