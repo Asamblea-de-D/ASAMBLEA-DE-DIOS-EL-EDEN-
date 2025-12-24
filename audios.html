@@ -65,34 +65,46 @@ h2 {
 }
 
 /* RELLENO HUD (TODO EL CUADRO) */
- .audio-box::before {
+  .audio-box::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    width: var(--progress);
+    width: var(--progress, 0%);
+    z-index: 0;
+
     background: linear-gradient(
         90deg,
-        var(--color),
-        #ffffffaa,
-        var(--color)
+        #00ff66,
+        #00ff66
     );
-    opacity: 0.55; /* MÁS FUERTE */
-    filter: brightness(1.6) saturate(1.6);
-    transition: width 0.2s linear, background 0.3s;
-    z-index: 0;
+
+    opacity: 0.35;
+    transition: width 0.2s linear, background 0.3s linear;
 }
+
 
 
 /* CONTENIDO POR ENCIMA */
  .audio-box {
-    border: 2px solid #00ff66;
+    position: relative;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(0,0,0,0.7);
+
+    /* Marco dorado */
+    border: 2px solid gold;
+    border-radius: 12px;
+
+    /* Neón verde */
     box-shadow:
-        0 0 10px #00ff66,
-        0 0 20px #00ff66,
-        inset 0 0 10px rgba(0,255,102,0.4);
+        0 0 12px #00ff66,
+        inset 0 0 12px rgba(0,255,100,0.25);
+
+    overflow: hidden;
 }
+
 
 
 /* TITULO NORMAL */
@@ -252,15 +264,16 @@ audio {
     <audio controls src="Esa_oveja_era_yo-Leonel_Tuchez_Letra_(128k).m4a"></audio>
 </div> <div class="audio-box">
  
- <div class="titulo-hacker">Lloro Jose</div>
-    <strong>Lloro Jose</strong>
-    <audio controls src="Lloro Jose.mp3"></audio>
+ <div class="titulo-hacker">Lloro José</div>
+    <strong>Lloro José</strong>
+    <audio controls src="Lloro José.mp3"></audio>
 </div> <div class="audio-box">
  <div class="titulo-hacker"></div>
     <strong></strong>
     <audio controls src=".mp3"></audio>
 </div> <div class="audio-box">
  <div class="seccion-hacker">
+  
     <div class="titulo">TEXTOS BIBLICOS </div>
     <div class="linea"></div>
 </div>
@@ -390,6 +403,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 
